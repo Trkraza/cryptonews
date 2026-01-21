@@ -311,31 +311,51 @@ const ghHeaders: HeadersInit = {
 };
 
 async function fetchArticleIndexPaths(): Promise<string[]> {
-  // List files in content/articles (non-recursive)
   try {
     assertEnv();
 
     const url = `https://api.github.com/repos/${OWNER}/${REPO}/contents/content/articles?ref=${BRANCH}`;
-    const res = await fetch(url, { headers: ghHeaders, cache: "no-store" });
+
+    const res = await fetch(url, {
+      headers: {
+        ...ghHeaders,
+        "X-GitHub-Api-Version": "2022-11-28",
+      },
+      cache: "no-store",
+    });
+
+    const text = await res.text();
 
     if (!res.ok) {
-      console.error("GitHub contents list failed:", res.status, await res.text());
+      console.error("GitHub contents list failed:", res.status, text);
       return [];
     }
 
-    const data = await res.json();
+    // IMPORTANT: sometimes GitHub returns an object {message: "..."} (rate limit / auth)
+    let data: any;
+    try {
+      data = JSON.parse(text);
+    } catch (e) {
+      console.error("GitHub contents list returned non-JSON:", text);
+      return [];
+    }
 
-    if (!Array.isArray(data)) return [];
+    if (!Array.isArray(data)) {
+      console.error("GitHub contents list returned non-array:", data);
+      return [];
+    }
 
     return data
       .filter((item: any) => item?.type === "file" && typeof item?.path === "string")
       .map((item: any) => item.path as string)
       .filter((p: string) => p.endsWith(".md"));
+
   } catch (e) {
     console.error("fetchArticleIndexPaths error:", e);
     return [];
   }
 }
+
 
 async function fetchMarkdown(path: string): Promise<string> {
   // Fetch raw file content via GitHub Contents API (raw accept)
