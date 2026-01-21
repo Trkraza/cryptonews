@@ -23,7 +23,7 @@ Several factors contributed to this unprecedented surge:
 ## What This Means for Crypto
 
 This milestone could trigger a new wave of retail and institutional interest:
-looking for isr
+looking for isr 1234
 1. **Mainstream Acceptance**: $100K validates Bitcoin as a legitimate asset class
 2. **Altcoin Season**: Historically, Bitcoin rallies are followed by altcoin surges
 3. **Increased Scrutiny**: Regulators will pay closer attention
