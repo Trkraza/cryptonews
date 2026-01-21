@@ -68,8 +68,7 @@ import { getAllArticles } from './lib/articles';
 import ArticleCard from './components/ArticleCard';
 
 // export const revalidate = 3600; // Revalidate every hour
-export const dynamic = "force-dynamic";
-export default async function HomePage() {
+export const dynamic = "force-static";export default async function HomePage() {
   const allArticles = await getAllArticles();
   const articles = allArticles.slice(0, 3); // Latest 3 articles
 
