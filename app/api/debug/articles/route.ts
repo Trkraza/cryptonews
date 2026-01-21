@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server";
 import { getAllArticles } from "@/app/lib/articles";
 
-export const dynamic = "force-static";
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   try {
     const articles = await getAllArticles();

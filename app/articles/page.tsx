@@ -2,8 +2,6 @@ import { getAllArticles, getAllTags } from '../lib/articles';
 import ArticleCard from '../components/ArticleCard';
 import Link from 'next/link';
 
-// export const revalidate = 3600; // Revalidate every hour
-export const dynamic = "force-static";
 export default async function ArticlesPage() {
   const articles = await getAllArticles();
   const tags = await getAllTags();
@@ -43,9 +41,8 @@ export default async function ArticlesPage() {
         <h3 className="font-bold text-lg mb-2">🔄 How this works:</h3>
         <ul className="space-y-2 text-sm text-gray-700">
           <li>✅ Articles stored as Markdown files in GitHub</li>
-          <li>✅ ISR revalidates this page every hour (fallback)</li>
-          <li>✅ Webhooks trigger instant updates on push</li>
-          <li>✅ No manual rebuild needed!</li>
+          <li>✅ On-demand ISR via GitHub webhooks</li>
+          <li>✅ No time-based revalidation or full rebuilds needed!</li>
         </ul>
       </div>
     </div>

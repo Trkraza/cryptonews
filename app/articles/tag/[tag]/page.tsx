@@ -2,16 +2,12 @@ import { getArticlesByTag, getAllTags } from '@/app/lib/articles';
 import ArticleCard from '@/app/components/ArticleCard';
 import Link from 'next/link';
 
-// export const revalidate = 3600;
-
-// export async function generateStaticParams() {
-//   const tags = await getAllTags();
-//   return tags.map((tag) => ({
-//     tag,
-//   }));
-// }
-export const dynamic = "force-static";export const dynamicParams = true;
-
+export async function generateStaticParams() {
+  const tags = await getAllTags();
+  return tags.map((tag) => ({
+    tag,
+  }));
+}
 
 export default async function TagPage({ params }: { params: { tag: string } }) {
   const articles = await getArticlesByTag(params.tag);
