@@ -1,7 +1,7 @@
 import { getArticleBySlug, getAllArticles } from '@/app/lib/articles';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-
+export const dynamicParams = true;
 // export const revalidate = 3600;
 
 // Generate static paths
