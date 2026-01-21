@@ -18,7 +18,10 @@ This is a test article to verify that webhooks are working correctly!
 ## What Should Happen
 
 When I push this article to GitHub:
-**Version:** 2
+
+## VERSION CHECK: 999
+
+
 1. ✅ GitHub sends webhook to Vercel
 2. ✅ API verifies the signature
 3. ✅ ISR revalidates the pages
