@@ -10,7 +10,7 @@ import Link from 'next/link';
 //     tag,
 //   }));
 // }
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic";
 export const dynamicParams = true;
 
 

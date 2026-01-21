@@ -3,7 +3,7 @@ import ArticleCard from '../components/ArticleCard';
 import Link from 'next/link';
 
 // export const revalidate = 3600; // Revalidate every hour
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic";
 
 export default async function ArticlesPage() {
   const articles = await getAllArticles();
