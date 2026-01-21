@@ -19,7 +19,7 @@ This is a test article to verify that webhooks are working correctly!
 
 When I push this article to GitHub:
 
-## VERSION CHECK: 999
+## VERSION CHECK: 99900000
 
 
 1. ✅ GitHub sends webhook to Vercel
