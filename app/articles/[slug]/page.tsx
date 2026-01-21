@@ -87,12 +87,12 @@ import { notFound } from "next/navigation";
 export const dynamicParams = true;
 
 // Generate static paths
-export async function generateStaticParams() {
-  const articles = await getAllArticles();
-  return articles.map((article) => ({
-    slug: article.slug,
-  }));
-}
+// export async function generateStaticParams() {
+//   const articles = await getAllArticles();
+//   return articles.map((article) => ({
+//     slug: article.slug,
+//   }));
+// }
 
 // ✅ FIX: params is a Promise
 export async function generateMetadata({

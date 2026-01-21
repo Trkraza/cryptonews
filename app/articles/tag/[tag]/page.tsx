@@ -4,12 +4,12 @@ import Link from 'next/link';
 
 // export const revalidate = 3600;
 
-export async function generateStaticParams() {
-  const tags = await getAllTags();
-  return tags.map((tag) => ({
-    tag,
-  }));
-}
+// export async function generateStaticParams() {
+//   const tags = await getAllTags();
+//   return tags.map((tag) => ({
+//     tag,
+//   }));
+// }
 
 export default async function TagPage({ params }: { params: { tag: string } }) {
   const articles = await getArticlesByTag(params.tag);
