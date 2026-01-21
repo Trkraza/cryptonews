@@ -2,6 +2,8 @@ import { getArticleBySlug, getAllArticles } from "@/app/lib/articles";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+export const dynamicParams = true;
+
 // Pre-render all article pages at build time
 export async function generateStaticParams() {
   const articles = await getAllArticles();
@@ -14,9 +16,9 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug:string };
+  params: Promise<{ slug: string }>;
 }) {
-  const { slug } = params;
+  const { slug } = await params;
 
   try {
     const article = await getArticleBySlug(slug);
@@ -34,9 +36,9 @@ export async function generateMetadata({
 export default async function ArticlePage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const { slug } = params;
+  const { slug } = await params;
 
   let article;
   try {
