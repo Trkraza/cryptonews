@@ -1,11 +1,10 @@
 ---
 title: "On-Demand ISR Test Post"
-description: "If you can see this instantly after a GitHub push, webhook revalidation is working."
 date: "2026-01-21"
-tags:
-  - test
-  - isr
-  - webhook
+author: "Trkraza"
+tags: ["test", "isr", "webhook"]
+slug: "on-demand-isr-test-post"
+excerpt: "If you can see this instantly after a GitHub push, webhook revalidation is working."
 ---
 
 # On-Demand ISR Test ✅
