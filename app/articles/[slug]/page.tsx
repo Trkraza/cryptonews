@@ -2,11 +2,11 @@ import { getArticleBySlug, getAllArticles } from '@/app/lib/articles';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-export const revalidate = 3600;
+// export const revalidate = 3600;
 
 // Generate static paths
 export async function generateStaticParams() {
-  const articles = getAllArticles();
+  const articles = await getAllArticles();
   return articles.map((article) => ({
     slug: article.slug,
   }));

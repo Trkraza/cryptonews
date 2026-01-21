@@ -2,11 +2,11 @@ import { getAllArticles, getAllTags } from '../lib/articles';
 import ArticleCard from '../components/ArticleCard';
 import Link from 'next/link';
 
-export const revalidate = 3600; // Revalidate every hour
+// export const revalidate = 3600; // Revalidate every hour
 
-export default function ArticlesPage() {
-  const articles = getAllArticles();
-  const tags = getAllTags();
+export default async function ArticlesPage() {
+  const articles = await getAllArticles();
+  const tags = await getAllTags();
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-12">

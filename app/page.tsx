@@ -67,10 +67,11 @@ import Link from 'next/link';
 import { getAllArticles } from './lib/articles';
 import ArticleCard from './components/ArticleCard';
 
-export const revalidate = 3600; // Revalidate every hour
+// export const revalidate = 3600; // Revalidate every hour
 
-export default function HomePage() {
-  const articles = getAllArticles().slice(0, 3); // Latest 3 articles
+export default async function HomePage() {
+  const allArticles = await getAllArticles();
+  const articles = allArticles.slice(0, 3); // Latest 3 articles
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-12">
