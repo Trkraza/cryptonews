@@ -13,6 +13,7 @@ import Link from 'next/link';
 export const dynamic = "force-static";
 export const dynamicParams = true;
 
+
 export default async function TagPage({ params }: { params: { tag: string } }) {
   const articles = await getArticlesByTag(params.tag);
 
